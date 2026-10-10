@@ -1,0 +1,115 @@
+{
+  "manifest_version": "0.3",
+  "name": "claude-bridge-for-zen",
+  "display_name": "Zen Browser (Claude Bridge)",
+  "version": "0.2.0",
+  "description": "Lets Claude see and control tabs in the Zen browser via the Claude Bridge for Zen extension, and starts Zen when needed.",
+  "author": {
+    "name": "ASDFboy and Claude",
+    "url": "https://github.com/ASDFboy"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/server.js"
+      ],
+      "env": {
+        "ZEN_BRIDGE_PORT": "18765",
+        "ZEN_AUTO_LAUNCH": "${user_config.auto_launch}",
+        "ZEN_PATH": "${user_config.zen_path}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "tabs_context",
+      "description": "List tabs Claude may use"
+    },
+    {
+      "name": "tabs_create",
+      "description": "Open a new tab"
+    },
+    {
+      "name": "tabs_close",
+      "description": "Close a tab"
+    },
+    {
+      "name": "tabs_select",
+      "description": "Bring a tab to the front"
+    },
+    {
+      "name": "navigate",
+      "description": "Go to a URL, back, forward or reload"
+    },
+    {
+      "name": "computer",
+      "description": "Screenshot, click, type, key presses, scroll"
+    },
+    {
+      "name": "read_page",
+      "description": "Page outline with element refs"
+    },
+    {
+      "name": "find",
+      "description": "Find elements by text or label"
+    },
+    {
+      "name": "form_input",
+      "description": "Set form fields"
+    },
+    {
+      "name": "get_page_text",
+      "description": "Readable page text"
+    },
+    {
+      "name": "javascript_tool",
+      "description": "Run JavaScript in the page"
+    },
+    {
+      "name": "read_console_messages",
+      "description": "Console output and errors"
+    },
+    {
+      "name": "read_network_requests",
+      "description": "HTTP requests made by the tab"
+    },
+    {
+      "name": "resize_window",
+      "description": "Resize the browser window"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "license": "MIT",
+  "user_config": {
+    "auto_launch": {
+      "type": "boolean",
+      "title": "Start Zen automatically",
+      "description": "Open Zen when Claude needs the browser and it isn't running.",
+      "default": true,
+      "required": false
+    },
+    "zen_path": {
+      "type": "file",
+      "title": "Zen location (optional)",
+      "description": "Only needed if Zen isn't installed in the usual place (e.g. C:\\Program Files\\Zen Browser\\zen.exe).",
+      "required": false
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ASDFboy/claude-in-zen"
+  },
+  "homepage": "https://github.com/ASDFboy/claude-in-zen"
+}

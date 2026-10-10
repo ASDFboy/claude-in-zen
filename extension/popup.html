@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root { --bg:#faf9f5; --fg:#1f1e1d; --mut:#6b6a66; --line:#e5e3dc; --acc:#d97757; --ok:#3a7d44; --bad:#b33a3a; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#262624; --fg:#ecebe6; --mut:#9c9a93; --line:#3a3936; --ok:#6fbf73; --bad:#e36b6b; } }
+  * { box-sizing: border-box; }
+  body { margin:0; width:300px; font:13px/1.4 system-ui, sans-serif; background:var(--bg); color:var(--fg); }
+  header { display:flex; align-items:center; gap:8px; padding:12px 14px; border-bottom:1px solid var(--line); }
+  header img { width:20px; height:20px; }
+  header b { flex:1; }
+  .dot { width:8px; height:8px; border-radius:50%; background:var(--bad); display:inline-block; margin-right:6px; }
+  .dot.on { background:var(--ok); }
+  section { padding:12px 14px; border-bottom:1px solid var(--line); }
+  .status { color:var(--mut); font-size:12px; }
+  button { width:100%; padding:8px; border:0; border-radius:8px; background:var(--acc); color:#fff; font:inherit; font-weight:600; cursor:pointer; }
+  button.ghost { background:transparent; color:var(--fg); border:1px solid var(--line); font-weight:500; }
+  button:disabled { opacity:.5; cursor:default; }
+  ul { list-style:none; padding:0; margin:6px 0 0; max-height:140px; overflow:auto; }
+  li { display:flex; gap:6px; align-items:center; padding:3px 0; }
+  li span { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  li a { color:var(--mut); cursor:pointer; text-decoration:none; font-size:16px; line-height:1; }
+  label { display:flex; gap:8px; align-items:flex-start; padding:4px 0; cursor:pointer; }
+  label small { color:var(--mut); display:block; }
+  .row { display:flex; gap:8px; align-items:center; }
+  input[type=number] { width:80px; padding:4px 6px; border:1px solid var(--line); border-radius:6px; background:transparent; color:var(--fg); font:inherit; }
+  h4 { margin:0; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--mut); }
+</style>
+</head>
+<body>
+  <header><img src="icons/icon.svg" alt=""><b>Claude Bridge</b><span class="status" id="conn"></span></header>
+  <section>
+    <button id="share">Share this tab with Claude</button>
+    <p class="status" id="shareNote" hidden></p>
+  </section>
+  <section>
+    <h4>Shared tabs</h4>
+    <ul id="tabs"></ul>
+  </section>
+  <section>
+    <label><input type="checkbox" id="pause"><span>Pause Claude<small>Rejects every browser action until you resume.</small></span></label>
+    <label><input type="checkbox" id="allowAll"><span>Allow access to all tabs<small>Off: Claude only sees tabs it opened or you shared.</small></span></label>
+  </section>
+  <section class="row">
+    <span class="status">Bridge port</span>
+    <input type="number" id="port" min="1025" max="65535">
+    <button class="ghost" id="reconnect" style="width:auto;flex:1">Reconnect</button>
+  </section>
+  <script src="popup.js"></script>
+</body>
+</html>

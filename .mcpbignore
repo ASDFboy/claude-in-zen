@@ -1,0 +1,5 @@
+extension/
+README.md
+LICENSE
+.gitignore
+server/package-lock.json

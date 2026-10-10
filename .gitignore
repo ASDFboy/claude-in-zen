@@ -1,0 +1,6 @@
+node_modules/
+*.mcpb
+*.xpi
+web-ext-artifacts/
+.web-extension-id
+.env
