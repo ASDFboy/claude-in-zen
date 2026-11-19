@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "description": "Lets Claude see and control tabs in the Zen browser via the Claude Bridge for Zen extension, and starts Zen when needed.",
   "author": {
-    "name": "ASDFboy and Claude",
+    "name": "ASDFboy",
     "url": "https://github.com/ASDFboy"
   },
   "server": {

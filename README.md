@@ -130,7 +130,7 @@ Firefox gives extensions no debugger protocol, so input is simulated with DOM ev
 
 ## Authors
 
-ASDFboy and Claude.
+ASDFboy.
 
 ## License
 

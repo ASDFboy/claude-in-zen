@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Claude Bridge for Zen",
   "version": "0.1.0",
-  "author": "ASDFboy and Claude",
+  "author": "ASDFboy",
   "homepage_url": "https://github.com/ASDFboy/claude-in-zen",
   "description": "Unofficial. Lets Claude (through a local MCP server) see and control the tabs you share with it in Zen or Firefox.",
   "browser_specific_settings": {

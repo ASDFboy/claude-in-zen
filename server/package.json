@@ -13,7 +13,7 @@
   "dependencies": {
     "ws": "^8.18.0"
   },
-  "author": "ASDFboy and Claude",
+  "author": "ASDFboy",
   "repository": {
     "type": "git",
     "url": "https://github.com/ASDFboy/claude-in-zen.git"
